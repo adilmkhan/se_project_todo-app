@@ -9,6 +9,28 @@ class FormValidator {
   }
 
   //Todo - implement all of the other methods
+  _disableButton() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  }
+
+  resetValidation() {
+    // Get all input elements in the form
+    this._inputList = Array.from(
+      this._formEl.querySelectorAll(this._inputSelector)
+    );
+    this._buttonElement = this._formEl.querySelector(
+      this._submitButtonSelector
+    );
+
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+
+    // Disable the submit button
+    this._disableButton();
+  }
+
   _showInputError(inputElement, errorMessage) {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = this._formEl.querySelector(errorElementId);
@@ -33,14 +55,14 @@ class FormValidator {
     }
   }
 
-  _hasInvalidInput(inputElement) {
+  _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
 
   _toggleButtonState() {
-    if (hasInvalidInput(inputElement)) {
+    if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._inactiveButtonClass);
       this._buttonElement.disabled = true;
     } else {
