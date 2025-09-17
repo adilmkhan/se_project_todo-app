@@ -1,14 +1,14 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+This is a Todo application that has the functionality to add and delete new items.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+It also has the functionality to perform form input validation for a good user experience where errors in input fields are caught live before submission.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+We are using object orineted programming in this particular project.
 
 ## Deployment
 
