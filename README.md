@@ -14,4 +14,4 @@ We are using object orineted programming in this particular project.
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+- ### Click **[here](https://adilmkhan.github.io/se_project_todo-app/)** to view the webpage on Github.
