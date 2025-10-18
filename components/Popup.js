@@ -2,12 +2,13 @@ class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
     this._popupCloseBtn = this._popupElement.querySelector(".popup__close");
+    //Bind the method to preserve 'this' context
+    this._handleEscapeClose = this._handleEscapeClose.bind(this);
   }
 
   _handleEscapeClose(evt) {
     if (evt.key === "Escape") {
       //TODO - call the close method
-      console.log("this should technically close");
       this.close();
     }
   }

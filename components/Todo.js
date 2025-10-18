@@ -1,18 +1,24 @@
 class Todo {
-  constructor(data, selector) {
+  constructor(data, selector, handleCheck, handleDelete, handleTotalDelete) {
     // `this` here is the *new instance* created by `new Card(...)` or `new Subclass(...)`.
     // We store the selector for the template this instance will clone.
     this._data = data;
     this._templateElement = document.querySelector(selector);
+    this._handleCheck = handleCheck;
+    this._handleDelete = handleDelete;
+    this._handleTotalDelete = handleTotalDelete;
   }
 
   _setEventListeners() {
     this._todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = !this._data.completed;
+      this._handleCheck(this._data.completed);
     });
     const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
+      this._handleTotalDelete();
+      this._handleDelete(this._data.completed);
     });
   }
 
